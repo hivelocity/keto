@@ -33,7 +33,7 @@ import (
 	"gitlab.host1plus.com/linas/keto/authentication"
 	keto "gitlab.host1plus.com/linas/keto/sdk/go/keto/swagger"
 	"gitlab.host1plus.com/linas/keto/warden"
-	"github.com/ory/ladon"
+	"gitlab.host1plus.com/linas/ladon"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

@@ -26,7 +26,7 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/ory/herodot"
-	"github.com/ory/ladon"
+	"gitlab.host1plus.com/linas/ladon"
 	"github.com/ory/pagination"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"

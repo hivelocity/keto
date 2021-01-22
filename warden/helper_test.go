@@ -26,8 +26,8 @@ import (
 
 	"gitlab.host1plus.com/linas/keto/role"
 	"gitlab.host1plus.com/linas/keto/warden"
-	"github.com/ory/ladon"
-	"github.com/ory/ladon/manager/memory"
+	"gitlab.host1plus.com/linas/ladon"
+	"gitlab.host1plus.com/linas/ladon/manager/memory"
 	"github.com/sirupsen/logrus"
 )
 

@@ -37,7 +37,7 @@ import (
 	"gitlab.host1plus.com/linas/keto/policy"
 	"gitlab.host1plus.com/linas/keto/role"
 	"gitlab.host1plus.com/linas/keto/warden"
-	"github.com/ory/ladon"
+	"gitlab.host1plus.com/linas/ladon"
 	"github.com/rs/cors"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"

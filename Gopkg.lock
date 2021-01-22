@@ -282,16 +282,6 @@
   revision = "b0f8ef18691ebd745ed710662d6756cd7a89add7"
   version = "v0.6.2"
 
-[[projects]]
-  name = "github.com/ory/ladon"
-  packages = [
-    ".",
-    "compiler",
-    "manager/memory",
-    "manager/sql"
-  ]
-  revision = "76e069e27b002d186005c14b1f1b86472cc209f2"
-  version = "v0.8.10"
 
 [[projects]]
   branch = "master"
@@ -444,6 +434,16 @@
   revision = "a0b114877d4caeffbd7f87e3757c17fce570fea7"
 
 [[projects]]
+  name = "gitlab.host1plus.com/linas/ladon"
+  packages = [
+    ".",
+    "manager/memory",
+    "manager/sql"
+  ]
+  revision = "9d1cae5130cf19cfd42eb2e8a297e1608d288e52"
+  version = "v0.8.9"
+
+[[projects]]
   branch = "master"
   name = "golang.org/x/crypto"
   packages = [
@@ -546,6 +546,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "0d75caf6ff3b0874b9d492345b81d73abbebf2d10ca1cafd4547e6a33e3a7508"
+  inputs-digest = "80b2f678a8e10891dd3aab2377fb6c7508491d02b2c74f5d5f39bce1890aeb4c"
   solver-name = "gps-cdcl"
   solver-version = 1

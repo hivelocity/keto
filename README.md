@@ -52,7 +52,7 @@ a subject, for example user, application, service, car, etc., is authorized to p
 ## Introduction
 
 ORY Keto models Access Control Lists, Role Based Access Control, and fine-grained permission sets.
-This server implementation uses [ORY Ladon](https://github.com/ory/ladon) as the decision engine.
+This server implementation uses [ORY Ladon](https://gitlab.host1plus.com/linas/ladon) as the decision engine.
 
 ORY Keto resolves credentials using various authentication mechanisms:
 

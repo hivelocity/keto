@@ -70,7 +70,7 @@
   version = "0.6.2"
 
 [[constraint]]
-  name = "github.com/ory/ladon"
+  name = "gitlab.host1plus.com/linas/ladon"
   version = "0.8.9"
 
 [[constraint]]

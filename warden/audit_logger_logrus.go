@@ -24,7 +24,7 @@ package warden
 import (
 	"strings"
 
-	"github.com/ory/ladon"
+	"gitlab.host1plus.com/linas/ladon"
 	"github.com/sirupsen/logrus"
 )
 

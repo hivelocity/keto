@@ -32,18 +32,18 @@
 // - Action *(what)*: An arbitrary action name, for example "delete", "create" or "scoped:action:something".
 // - Resource *(something)*: An arbitrary unique resource name, for example "something", "resources.articles.1234" or some uniform resource name like "urn:isbn:3827370191".
 // - Condition *(context)*: An optional condition that evaluates the context (e.g. IP Address, request datetime, resource owner name, department, ...). Different strategies are available to evaluate conditions:
-//   - https://github.com/ory/ladon#cidr-condition
-//   - https://github.com/ory/ladon#string-equal-condition
-//   - https://github.com/ory/ladon#string-match-condition
-//	 - https://github.com/ory/ladon#subject-condition
-//   - https://github.com/ory/ladon#string-pairs-equal-condition
+//   - https://gitlab.host1plus.com/linas/ladon#cidr-condition
+//   - https://gitlab.host1plus.com/linas/ladon#string-equal-condition
+//   - https://gitlab.host1plus.com/linas/ladon#string-match-condition
+//	 - https://gitlab.host1plus.com/linas/ladon#subject-condition
+//   - https://gitlab.host1plus.com/linas/ladon#string-pairs-equal-condition
 //
 //
 // You can find more information on ACPs here:
 //
-// - https://github.com/ory/ladon#usage for more information on policy usage.
+// - https://gitlab.host1plus.com/linas/ladon#usage for more information on policy usage.
 //
-// - https://github.com/ory/ladon#concepts
+// - https://gitlab.host1plus.com/linas/ladon#concepts
 
 package policy
 

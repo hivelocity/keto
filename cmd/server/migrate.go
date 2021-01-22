@@ -25,7 +25,7 @@ import (
 	"net/url"
 
 	"gitlab.host1plus.com/linas/keto/role"
-	"github.com/ory/ladon/manager/sql"
+	"gitlab.host1plus.com/linas/ladon/manager/sql"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
