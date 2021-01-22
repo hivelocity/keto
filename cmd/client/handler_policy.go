@@ -27,7 +27,7 @@ import (
 
 	"net/http"
 
-	keto "github.com/ory/keto/sdk/go/keto/swagger"
+	keto "gitlab.host1plus.com/linas/keto/sdk/go/keto/swagger"
 	"github.com/ory/ladon"
 	"github.com/spf13/cobra"
 	"github.com/square/go-jose/json"

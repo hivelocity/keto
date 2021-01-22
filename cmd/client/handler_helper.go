@@ -28,7 +28,7 @@ import (
 
 	"strings"
 
-	keto "github.com/ory/keto/sdk/go/keto/swagger"
+	keto "gitlab.host1plus.com/linas/keto/sdk/go/keto/swagger"
 	"github.com/spf13/cobra"
 )
 

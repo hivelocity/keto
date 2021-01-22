@@ -30,7 +30,7 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/ory/herodot"
-	"github.com/ory/keto/authentication"
+	"gitlab.host1plus.com/linas/keto/authentication"
 	"github.com/pkg/errors"
 )
 

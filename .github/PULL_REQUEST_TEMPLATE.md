@@ -1,5 +1,3 @@
-## Related issue
-
 <!--
 Please link the GitHub issue this pull request resolves in the format of `#1234`. If you discussed this change
 with a maintainer, please mention her/him using the `@` syntax (e.g. `@aeneasr`).

@@ -24,7 +24,7 @@ import (
 	"context"
 
 	"github.com/ory/fosite"
-	"github.com/ory/keto/role"
+	"gitlab.host1plus.com/linas/keto/role"
 	"github.com/ory/ladon"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"

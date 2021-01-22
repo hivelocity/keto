@@ -18,7 +18,7 @@ package main
 import (
 	"os"
 
-	"github.com/ory/keto/cmd"
+	"gitlab.host1plus.com/linas/keto/cmd"
 	"github.com/pkg/profile"
 )
 
