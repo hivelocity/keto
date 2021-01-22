@@ -88,6 +88,9 @@ func (h *Handler) ListRoles(w http.ResponseWriter, r *http.Request, _ httprouter
 	if member := r.URL.Query().Get("member"); member != "" {
 		h.FindGroupNames(w, r, member, limit, offset)
 		return
+	} else if prefix := r.URL.Query().Get("prefix"); prefix != "" {
+		h.FindRolesWithPrefix(w, r, prefix, limit, offset)
+		return
 	} else {
 		h.listAllRoles(w, r, limit, offset)
 		return
@@ -106,6 +109,16 @@ func (h *Handler) listAllRoles(w http.ResponseWriter, r *http.Request, limit, of
 
 func (h *Handler) FindGroupNames(w http.ResponseWriter, r *http.Request, member string, limit, offset int) {
 	groups, err := h.Manager.FindRolesByMember(member, limit, offset)
+	if err != nil {
+		h.H.WriteError(w, r, err)
+		return
+	}
+
+	h.H.Write(w, r, groups)
+}
+
+func (h *Handler) FindRolesWithPrefix(w http.ResponseWriter, r *http.Request, prefix string, limit, offset int) {
+	groups, err := h.Manager.FindRolesByNamePrefix(prefix, limit, offset)
 	if err != nil {
 		h.H.WriteError(w, r, err)
 		return

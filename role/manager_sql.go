@@ -182,6 +182,27 @@ func (m *SQLManager) FindRolesByMember(member string, limit, offset int) ([]Role
 	return roles, nil
 }
 
+func (m *SQLManager) FindRolesByNamePrefix(prefix string, limit, offset int) ([]Role, error) {
+	var ids []string
+	if err := m.DB.Select(&ids, m.DB.Rebind(fmt.Sprintf("SELECT id from %s WHERE id LIKE ? ORDER BY id LIMIT ? OFFSET ?", m.TableRole)), prefix+"%", limit, offset); err == sql.ErrNoRows {
+		return nil, errors.WithStack(&herodot.ErrorNotFound)
+	} else if err != nil {
+		return nil, errors.WithStack(err)
+	}
+
+	var roles = make([]Role, len(ids))
+	for k, id := range ids {
+		role, err := m.GetRole(id)
+		if err != nil {
+			return nil, errors.WithStack(err)
+		}
+
+		roles[k] = *role
+	}
+
+	return roles, nil
+}
+
 func (m *SQLManager) ListRoles(limit, offset int) ([]Role, error) {
 	var ids []string
 	if err := m.DB.Select(&ids, m.DB.Rebind(fmt.Sprintf("SELECT id from %s LIMIT ? OFFSET ?", m.TableRole)), limit, offset); err == sql.ErrNoRows {

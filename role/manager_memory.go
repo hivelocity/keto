@@ -21,6 +21,7 @@
 package role
 
 import (
+	"strings"
 	"sync"
 
 	"github.com/ory/herodot"
@@ -111,6 +112,24 @@ func (m *MemoryManager) FindRolesByMember(member string, limit, offset int) ([]R
 				break
 			}
 		}
+	}
+
+	start, end := pagination.Index(limit, offset, len(res))
+	return res[start:end], nil
+}
+
+func (m *MemoryManager) FindRolesByNamePrefix(prefix string, limit, offset int) ([]Role, error) {
+	if m.Roles == nil {
+		m.Roles = map[string]Role{}
+	}
+
+	i := 0
+	res := make([]Role, len(m.Roles))
+	for _, r := range m.Roles {
+		if strings.HasPrefix(r.ID, prefix) {
+			res[i] = r
+		}
+		i++
 	}
 
 	start, end := pagination.Index(limit, offset, len(res))
