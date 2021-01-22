@@ -27,14 +27,14 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
+	"github.com/ory/sqlcon"
+	"github.com/pkg/errors"
+	"github.com/sirupsen/logrus"
 	"gitlab.host1plus.com/linas/keto/health"
 	"gitlab.host1plus.com/linas/keto/role"
 	"gitlab.host1plus.com/linas/ladon"
 	"gitlab.host1plus.com/linas/ladon/manager/memory"
 	"gitlab.host1plus.com/linas/ladon/manager/sql"
-	"github.com/ory/sqlcon"
-	"github.com/pkg/errors"
-	"github.com/sirupsen/logrus"
 )
 
 type managers struct {

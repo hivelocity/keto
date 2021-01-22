@@ -26,10 +26,10 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/ory/herodot"
-	"gitlab.host1plus.com/linas/ladon"
 	"github.com/ory/pagination"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
+	"gitlab.host1plus.com/linas/ladon"
 )
 
 const (
@@ -110,15 +110,15 @@ func (h *Handler) Create(w http.ResponseWriter, r *http.Request, _ httprouter.Pa
 		return
 	}
 
-	if p.ID == "" {
-		p.ID = uuid.New()
+	if p.Name == "" {
+		p.Name = uuid.New()
 	}
 
 	if err := h.Manager.Create(&p); err != nil {
 		h.H.WriteError(w, r, errors.WithStack(err))
 		return
 	}
-	h.H.WriteCreated(w, r, "/policies/"+p.ID, &p)
+	h.H.WriteCreated(w, r, "/policies/"+p.Name, &p)
 }
 
 // swagger:route GET /policies/{id} policy getPolicy
@@ -205,7 +205,7 @@ func (h *Handler) Update(w http.ResponseWriter, r *http.Request, ps httprouter.P
 		return
 	}
 
-	if p.ID != id {
+	if p.Name != id {
 		h.H.WriteErrorCode(w, r, http.StatusBadRequest, errors.New("Payload ID does not match ID from URL"))
 		return
 	}

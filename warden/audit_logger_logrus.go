@@ -24,8 +24,8 @@ package warden
 import (
 	"strings"
 
-	"gitlab.host1plus.com/linas/ladon"
 	"github.com/sirupsen/logrus"
+	"gitlab.host1plus.com/linas/ladon"
 )
 
 // AuditLoggerLogrus outputs information about granting or rejecting policies.
@@ -80,7 +80,7 @@ func (a *AuditLoggerLogrus) LogGrantedAccessRequest(r *ladon.Request, p ladon.Po
 func joinPoliciesNames(policies ladon.Policies) string {
 	var names []string
 	for _, policy := range policies {
-		names = append(names, policy.GetID())
+		names = append(names, policy.GetName())
 	}
 	return strings.Join(names, ", ")
 }

@@ -25,6 +25,7 @@ import (
 	"crypto/tls"
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/ory/fosite"
@@ -32,20 +33,19 @@ import (
 	"github.com/ory/go-convenience/stringsx"
 	"github.com/ory/graceful"
 	"github.com/ory/herodot"
+	"github.com/rs/cors"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
+	"github.com/urfave/negroni"
 	"gitlab.host1plus.com/linas/keto/authentication"
 	"gitlab.host1plus.com/linas/keto/health"
 	"gitlab.host1plus.com/linas/keto/policy"
 	"gitlab.host1plus.com/linas/keto/role"
 	"gitlab.host1plus.com/linas/keto/warden"
 	"gitlab.host1plus.com/linas/ladon"
-	"github.com/rs/cors"
-	"github.com/sirupsen/logrus"
-	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
-	"github.com/urfave/negroni"
 
 	negronilogrus "github.com/meatballhat/negroni-logrus"
-	metrics "github.com/ory/metrics-middleware"
 )
 
 // RunServe runs the Keto API HTTP server
@@ -118,30 +118,6 @@ func RunServe(
 			c = cors.New(corsx.ParseOptions()).Handler(n)
 		}
 
-		if ok, _ := cmd.Flags().GetBool("disable-telemetry"); !ok && viper.GetString("DATABASE_URL") != "memory" {
-			logger.Println("Transmission of telemetry data is enabled, to learn more go to: https://www.ory.sh/docs/guides/latest/telemetry/")
-
-			m := metrics.NewMetricsManager(
-				metrics.Hash("DATABASE_URL"),
-				viper.GetString("DATABASE_URL") != "memory",
-				"jk32cFATnj9GKbQdFL7fBB9qtKZdX9j7",
-				[]string{
-					"/policies",
-					"/roles",
-					"/warden/subjects/authorize",
-					"/warden/oauth2/access-tokens/authorize",
-					"/warden/oauth2/clients/authorize",
-				},
-				logger,
-				"ory-keto",
-				//100,
-				//"",
-			)
-			go m.RegisterSegment(buildVersion, buildHash, buildTime)
-			go m.CommitMemoryStatistics()
-			n.Use(m)
-		}
-
 		n.UseHandler(router)
 
 		cert, err := getTLSCertAndKey()
@@ -156,8 +132,10 @@ func RunServe(
 
 		addr := fmt.Sprintf("%s:%s", viper.GetString("HOST"), viper.GetString("PORT"))
 		server := graceful.WithDefaults(&http.Server{
-			Addr:    addr,
-			Handler: c,
+			Addr:         addr,
+			Handler:      c,
+			ReadTimeout:  60 * time.Second,
+			WriteTimeout: 60 * time.Second,
 			TLSConfig: &tls.Config{
 				Certificates: certs,
 			},

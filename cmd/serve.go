@@ -15,11 +15,8 @@
 package cmd
 
 import (
-	"os"
-	"strconv"
-
-	"gitlab.host1plus.com/linas/keto/cmd/server"
 	"github.com/spf13/cobra"
+	"gitlab.host1plus.com/linas/keto/cmd/server"
 )
 
 // serveCmd represents the serve command
@@ -101,7 +98,4 @@ DEBUG CONTROLS
 
 func init() {
 	RootCmd.AddCommand(serveCmd)
-
-	disableTelemetryEnv, _ := strconv.ParseBool(os.Getenv("DISABLE_TELEMETRY"))
-	serveCmd.Flags().Bool("disable-telemetry", disableTelemetryEnv, "Disable anonymized telemetry reports - for more information please visit https://www.ory.sh/docs/guides/telemetry")
 }

@@ -1,6 +1,6 @@
 <h1 align="center"><img src="./docs/images/banner_keto.png" alt="ORY Keto - Open Source & Cloud Native Access Control Server"></h1>
 
-<h4 align="center">    
+<h4 align="center">
     <a href="https://discord.gg/PAMQWkr">Chat</a> |
     <a href="https://community.ory.am/">Forums</a> |
     <a href="http://eepurl.com/di390P">Newsletter</a><br/><br/>
@@ -39,7 +39,6 @@ a subject, for example user, application, service, car, etc., is authorized to p
   - [Examples](#examples)
 - [Security](#security)
   - [Disclosing vulnerabilities](#disclosing-vulnerabilities)
-- [Telemetry](#telemetry)
   - [Guide](#guide)
   - [HTTP API documentation](#http-api-documentation)
   - [Upgrading and Changelog](#upgrading-and-changelog)
@@ -121,7 +120,7 @@ ORY Oathkeeper, and ORY Keto.
 ### ORY Hydra: OAuth2 & OpenID Connect Server
 
 [ORY Hydra](https://github.com/ory/hydra) ORY Hydra is a hardened OAuth2 and OpenID Connect server optimized
-for low-latency, high throughput, and low resource consumption. ORY Hydra is not an identity provider, which would include 
+for low-latency, high throughput, and low resource consumption. ORY Hydra is not an identity provider, which would include
 user sign up, user log in, password reset flow. Hydra but connects to your existing identity provider through a consent app.
 
 ### ORY Oathkeeper: Identity & Access Proxy
@@ -139,11 +138,6 @@ The [ory/examples](https://github.com/ory/examples) repository contains numerous
 
 If you think you found a security vulnerability, please refrain from posting it publicly on the forums, the chat, or GitHub
 and send us an email to [hi@ory.am](mailto:hi@ory.am) instead.
-
-## Telemetry
-
-Our services collect summarized, anonymized data which can optionally be turned off. Click
-[here](https://www.ory.sh/docs/guides/master/telemetry/) to learn more.
 
 ### Guide
 

@@ -4,7 +4,7 @@ set -euo pipefail
 
 cd "$( dirname "${BASH_SOURCE[0]}" )/.."
 
-DATABASE_URL=memory keto serve --dangerous-auto-logon --dangerous-force-http --disable-telemetry &
+DATABASE_URL=memory keto serve --dangerous-auto-logon --dangerous-force-http &
 while ! echo exit | nc 127.0.0.1 4444; do sleep 1; done
 
 keto clients create --id foobar
