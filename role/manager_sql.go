@@ -22,6 +22,7 @@ package role
 
 import (
 	"database/sql"
+	"strings"
 
 	"fmt"
 
@@ -29,7 +30,7 @@ import (
 	"github.com/ory/herodot"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
-	"github.com/rubenv/sql-migrate"
+	migrate "github.com/rubenv/sql-migrate"
 )
 
 var migrations = &migrate.MemoryMigrationSource{
@@ -102,7 +103,7 @@ func (m *SQLManager) GetRole(id string) (*Role, error) {
 
 	var q []string
 	if err := m.DB.Select(&q, m.DB.Rebind(fmt.Sprintf("SELECT member from %s WHERE role_id = ?", m.TableMember)), found); err == sql.ErrNoRows {
-		return nil, errors.WithStack(&herodot.ErrorNotFound)
+		return nil, errors.WithStack(&herodot.ErrNotFound)
 	} else if err != nil {
 		return nil, errors.WithStack(err)
 	}
@@ -164,7 +165,7 @@ func (m *SQLManager) RemoveRoleMembers(role string, subjects []string) error {
 func (m *SQLManager) FindRolesByMember(member string, limit, offset int) ([]Role, error) {
 	var ids []string
 	if err := m.DB.Select(&ids, m.DB.Rebind(fmt.Sprintf("SELECT role_id from %s WHERE member = ? GROUP BY role_id ORDER BY role_id LIMIT ? OFFSET ?", m.TableMember)), member, limit, offset); err == sql.ErrNoRows {
-		return nil, errors.WithStack(&herodot.ErrorNotFound)
+		return nil, errors.WithStack(&herodot.ErrNotFound)
 	} else if err != nil {
 		return nil, errors.WithStack(err)
 	}
@@ -185,7 +186,7 @@ func (m *SQLManager) FindRolesByMember(member string, limit, offset int) ([]Role
 func (m *SQLManager) FindRolesByNamePrefix(prefix string, limit, offset int) ([]Role, error) {
 	var ids []string
 	if err := m.DB.Select(&ids, m.DB.Rebind(fmt.Sprintf("SELECT id from %s WHERE id LIKE ? ORDER BY id LIMIT ? OFFSET ?", m.TableRole)), prefix+"%", limit, offset); err == sql.ErrNoRows {
-		return nil, errors.WithStack(&herodot.ErrorNotFound)
+		return nil, errors.WithStack(&herodot.ErrNotFound)
 	} else if err != nil {
 		return nil, errors.WithStack(err)
 	}
@@ -204,21 +205,27 @@ func (m *SQLManager) FindRolesByNamePrefix(prefix string, limit, offset int) ([]
 }
 
 func (m *SQLManager) ListRoles(limit, offset int) ([]Role, error) {
-	var ids []string
-	if err := m.DB.Select(&ids, m.DB.Rebind(fmt.Sprintf("SELECT id from %s LIMIT ? OFFSET ?", m.TableRole)), limit, offset); err == sql.ErrNoRows {
-		return nil, errors.WithStack(&herodot.ErrorNotFound)
+	type data struct {
+		ID      string
+		Members string
+	}
+
+	datas := make([]data, 0)
+
+	if err := m.DB.Select(&datas, m.DB.Rebind(fmt.Sprintf("SELECT r.id, COALESCE(GROUP_CONCAT(rm.member), '') as members FROM %s r LEFT JOIN %s rm ON rm.role_id = r.id GROUP BY r.id LIMIT ? OFFSET ?", m.TableRole, m.TableMember)), limit, offset); err == sql.ErrNoRows {
+		return nil, errors.WithStack(&herodot.ErrNotFound)
 	} else if err != nil {
 		return nil, errors.WithStack(err)
 	}
 
-	var roles = make([]Role, len(ids))
-	for k, id := range ids {
-		role, err := m.GetRole(id)
-		if err != nil {
-			return nil, errors.WithStack(err)
+	var roles = make([]Role, len(datas))
+	for k, d := range datas {
+		role := Role{ID: d.ID}
+		if d.Members != "" {
+			role.Members = strings.Split(d.Members, ",")
 		}
 
-		roles[k] = *role
+		roles[k] = role
 	}
 
 	return roles, nil

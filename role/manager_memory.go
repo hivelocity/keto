@@ -55,7 +55,7 @@ func (m *MemoryManager) CreateRole(r *Role) error {
 
 func (m *MemoryManager) GetRole(id string) (*Role, error) {
 	if r, ok := m.Roles[id]; !ok {
-		return nil, errors.WithStack(&herodot.ErrorNotFound)
+		return nil, errors.WithStack(&herodot.ErrNotFound)
 	} else {
 		return &r, nil
 	}

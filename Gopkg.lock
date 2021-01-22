@@ -279,8 +279,8 @@
 [[projects]]
   name = "github.com/ory/herodot"
   packages = ["."]
-  revision = "30b4db38fcaf4bf35a545d95c655622b05d8ac35"
-  version = "v0.3.0"
+  revision = "b0f8ef18691ebd745ed710662d6756cd7a89add7"
+  version = "v0.6.2"
 
 [[projects]]
   name = "github.com/ory/ladon"
@@ -546,6 +546,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6cd0735feaa3ce35a2b48ee69c0962454717c2adda23c08cbdae1b4ea1618155"
+  inputs-digest = "0d75caf6ff3b0874b9d492345b81d73abbebf2d10ca1cafd4547e6a33e3a7508"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -74,7 +74,7 @@ func (h *Handler) SetRoutes(r *httprouter.Router) {
 //       403: genericError
 //       500: genericError
 func (h *Handler) List(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	limit, offset := pagination.Parse(r, 500, 0, 1000)
+	limit, offset := pagination.Parse(r, 500, 0, 1000000)
 	policies, err := h.Manager.GetAll(int64(limit), int64(offset))
 	if err != nil {
 		h.H.WriteError(w, r, errors.WithStack(err))
@@ -142,7 +142,7 @@ func (h *Handler) Get(w http.ResponseWriter, r *http.Request, ps httprouter.Para
 	policy, err := h.Manager.Get(ps.ByName("id"))
 	if err != nil {
 		if err.Error() == "Not found" {
-			h.H.WriteError(w, r, errors.WithStack(&herodot.ErrorNotFound))
+			h.H.WriteError(w, r, errors.WithStack(&herodot.ErrNotFound))
 			return
 		}
 		h.H.WriteError(w, r, errors.WithStack(err))

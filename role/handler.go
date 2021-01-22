@@ -84,7 +84,7 @@ func (h *Handler) SetRoutes(r *httprouter.Router) {
 //       403: genericError
 //       500: genericError
 func (h *Handler) ListRoles(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	limit, offset := pagination.Parse(r, 100, 0, 500)
+	limit, offset := pagination.Parse(r, 100, 0, 1000000)
 	if member := r.URL.Query().Get("member"); member != "" {
 		h.FindGroupNames(w, r, member, limit, offset)
 		return
