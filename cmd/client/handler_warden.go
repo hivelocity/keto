@@ -25,7 +25,7 @@ import (
 	"fmt"
 	"net/http"
 
-	keto "gitlab.host1plus.com/linas/keto/sdk/go/keto/swagger"
+	keto "github.com/hivelocity/ketoketo/sdk/go/keto/swagger"
 	"github.com/spf13/cobra"
 )
 

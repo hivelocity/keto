@@ -15,7 +15,7 @@
 package cmd
 
 import (
-	"gitlab.host1plus.com/linas/keto/cmd/server"
+	"github.com/hivelocity/ketoketo/cmd/server"
 	"github.com/spf13/cobra"
 )
 

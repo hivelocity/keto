@@ -16,7 +16,7 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
-	"gitlab.host1plus.com/linas/keto/cmd/server"
+	"github.com/hivelocity/ketoketo/cmd/server"
 )
 
 // serveCmd represents the serve command

@@ -28,7 +28,7 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/ory/herodot"
-	"gitlab.host1plus.com/linas/keto/sdk/go/keto/swagger"
+	"github.com/hivelocity/ketoketo/sdk/go/keto/swagger"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

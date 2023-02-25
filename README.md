@@ -66,7 +66,7 @@ There are various ways of installing ORY keto on your system.
 
 #### 1. Download binaries
 
-The client and server **binaries are downloadable at [releases](https://gitlab.host1plus.com/linas/keto/releases)**.
+The client and server **binaries are downloadable at [releases](https://github.com/hivelocity/ketoketo/releases)**.
 There is no installer yet available. Add the ORY keto binary to the PATH environment variable or add
 the binary to a location already in your path (`/usr/bin`, ...).
 If these download instructions are unclear, ask for clarification in our [chat channel](https://www.ory.sh/chat). We are happy to help.
@@ -100,7 +100,7 @@ keto_LATEST=$(git describe --abbrev=0 --tags)
 git checkout $keto_LATEST
 dep ensure -vendor-only
 go install \
-    -ldflags "-X gitlab.host1plus.com/linas/keto/cmd.Version=$keto_LATEST -X gitlab.host1plus.com/linas/keto/cmd.BuildTime=`TZ=UTC date -u '+%Y-%m-%dT%H:%M:%SZ'` -X gitlab.host1plus.com/linas/keto/cmd.GitHash=`git rev-parse HEAD`" \
+    -ldflags "-X github.com/hivelocity/ketoketo/cmd.Version=$keto_LATEST -X github.com/hivelocity/ketoketo/cmd.BuildTime=`TZ=UTC date -u '+%Y-%m-%dT%H:%M:%SZ'` -X github.com/hivelocity/ketoketo/cmd.GitHash=`git rev-parse HEAD`" \
     github.com/ory/keto
 git checkout master
 keto help

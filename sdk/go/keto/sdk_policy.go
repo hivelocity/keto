@@ -1,6 +1,6 @@
 package keto
 
-import "gitlab.host1plus.com/linas/keto/sdk/go/keto/swagger"
+import "github.com/hivelocity/ketoketo/sdk/go/keto/swagger"
 
 type PolicySDK interface {
 	CreatePolicy(body swagger.Policy) (*swagger.Policy, *swagger.APIResponse, error)

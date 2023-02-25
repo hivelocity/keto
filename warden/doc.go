@@ -22,7 +22,7 @@
 package warden
 
 import (
-	"gitlab.host1plus.com/linas/keto/authentication"
+	"github.com/hivelocity/ketoketo/authentication"
 )
 
 // swagger:parameters isSubjectAuthorized
