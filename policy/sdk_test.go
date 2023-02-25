@@ -28,8 +28,8 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/ory/herodot"
-	. "github.com/hivelocity/ketoketo/policy"
-	keto "github.com/hivelocity/ketoketo/sdk/go/keto/swagger"
+	. "github.com/hivelocity/keto/policy"
+	keto "github.com/hivelocity/keto/sdk/go/keto/swagger"
 	"github.com/hivelocity/ladon"
 	"github.com/hivelocity/ladon/manager/memory"
 	"github.com/pborman/uuid"

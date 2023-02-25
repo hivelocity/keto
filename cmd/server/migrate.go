@@ -24,7 +24,7 @@ package server
 import (
 	"net/url"
 
-	"github.com/hivelocity/ketoketo/role"
+	"github.com/hivelocity/keto/role"
 	"github.com/hivelocity/ladon/manager/sql"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -34,7 +34,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
-	"github.com/hivelocity/ketoketo/legacy"
+	"github.com/hivelocity/keto/legacy"
 	"github.com/rubenv/sql-migrate"
 )
 

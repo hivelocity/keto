@@ -18,7 +18,7 @@ package main
 import (
 	"os"
 
-	"github.com/hivelocity/ketoketo/cmd"
+	"github.com/hivelocity/keto/cmd"
 	"github.com/pkg/profile"
 )
 

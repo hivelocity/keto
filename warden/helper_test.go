@@ -24,8 +24,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/hivelocity/ketoketo/role"
-	"github.com/hivelocity/ketoketo/warden"
+	"github.com/hivelocity/keto/role"
+	"github.com/hivelocity/keto/warden"
 	"github.com/hivelocity/ladon"
 	"github.com/hivelocity/ladon/manager/memory"
 	"github.com/sirupsen/logrus"

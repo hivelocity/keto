@@ -15,7 +15,7 @@
 package cmd
 
 import (
-	"github.com/hivelocity/ketoketo/cmd/server"
+	"github.com/hivelocity/keto/cmd/server"
 	"github.com/spf13/cobra"
 )
 

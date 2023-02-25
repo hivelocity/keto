@@ -1,6 +1,6 @@
 package keto
 
-import "github.com/hivelocity/ketoketo/sdk/go/keto/swagger"
+import "github.com/hivelocity/keto/sdk/go/keto/swagger"
 
 type RoleSDK interface {
 	AddMembersToRole(id string, body swagger.RoleMembers) (*swagger.APIResponse, error)

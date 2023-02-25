@@ -30,7 +30,7 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/ory/herodot"
-	"github.com/hivelocity/ketoketo/authentication"
+	"github.com/hivelocity/keto/authentication"
 	"github.com/pkg/errors"
 )
 

@@ -22,7 +22,7 @@
 package warden
 
 import (
-	"github.com/hivelocity/ketoketo/authentication"
+	"github.com/hivelocity/keto/authentication"
 )
 
 // swagger:parameters isSubjectAuthorized

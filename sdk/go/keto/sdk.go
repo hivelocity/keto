@@ -3,7 +3,7 @@ package keto
 import (
 	"strings"
 
-	"github.com/hivelocity/ketoketo/sdk/go/keto/swagger"
+	"github.com/hivelocity/keto/sdk/go/keto/swagger"
 	"github.com/pkg/errors"
 )
 

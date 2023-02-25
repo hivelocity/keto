@@ -134,7 +134,7 @@ jobs:
       - run: go get -u github.com/mitchellh/gox github.com/tcnksm/ghr
       - run: dep ensure -vendor-only
       - run: |
-          gox -parallel=2 -ldflags "-X github.com/hivelocity/ketoketo/cmd.Version=`git describe --tags` -X github.com/hivelocity/ketoketo/cmd.BuildTime=`TZ=UTC date -u '+%Y-%m-%dT%H:%M:%SZ'` -X github.com/hivelocity/ketoketo/cmd.GitHash=`git rev-parse HEAD`" -output "dist/{{.Dir}}-{{.OS}}-{{.Arch}}";
+          gox -parallel=2 -ldflags "-X github.com/hivelocity/keto/cmd.Version=`git describe --tags` -X github.com/hivelocity/keto/cmd.BuildTime=`TZ=UTC date -u '+%Y-%m-%dT%H:%M:%SZ'` -X github.com/hivelocity/keto/cmd.GitHash=`git rev-parse HEAD`" -output "dist/{{.Dir}}-{{.OS}}-{{.Arch}}";
       - run: ghr -t $GITHUB_TOKEN -u $CIRCLE_PROJECT_USERNAME -r $CIRCLE_PROJECT_REPONAME --replace `git describe --tags` dist/
 
 workflows:

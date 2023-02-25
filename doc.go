@@ -4,7 +4,7 @@
 //     Host:
 //     BasePath: /
 //     Version: Latest
-//     License: Apache 2.0 https://github.com/hivelocity/ketoketo/blob/master/LICENSE
+//     License: Apache 2.0 https://github.com/hivelocity/keto/blob/master/LICENSE
 //     Contact: ORY <hi@ory.am> https://www.ory.sh
 //
 //     Consumes:
