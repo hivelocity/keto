@@ -25,7 +25,7 @@ import (
 	"strings"
 
 	"github.com/sirupsen/logrus"
-	"gitlab.host1plus.com/linas/ladon"
+	"github.com/hivelocity/ladon"
 )
 
 // AuditLoggerLogrus outputs information about granting or rejecting policies.

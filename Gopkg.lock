@@ -419,7 +419,7 @@
   version = "v0.3.0"
 
 [[projects]]
-  name = "gitlab.host1plus.com/linas/ladon"
+  name = "github.com/hivelocity/ladon"
   packages = [
     ".",
     "compiler",

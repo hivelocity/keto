@@ -43,7 +43,7 @@ import (
 	"gitlab.host1plus.com/linas/keto/policy"
 	"gitlab.host1plus.com/linas/keto/role"
 	"gitlab.host1plus.com/linas/keto/warden"
-	"gitlab.host1plus.com/linas/ladon"
+	"github.com/hivelocity/ladon"
 
 	negronilogrus "github.com/meatballhat/negroni-logrus"
 )

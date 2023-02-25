@@ -25,7 +25,7 @@ import (
 
 	"github.com/ory/fosite"
 	"gitlab.host1plus.com/linas/keto/role"
-	"gitlab.host1plus.com/linas/ladon"
+	"github.com/hivelocity/ladon"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

@@ -29,7 +29,7 @@ import (
 	"github.com/ory/pagination"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
-	"gitlab.host1plus.com/linas/ladon"
+	"github.com/hivelocity/ladon"
 )
 
 const (

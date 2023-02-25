@@ -32,9 +32,9 @@ import (
 	"github.com/sirupsen/logrus"
 	"gitlab.host1plus.com/linas/keto/health"
 	"gitlab.host1plus.com/linas/keto/role"
-	"gitlab.host1plus.com/linas/ladon"
-	"gitlab.host1plus.com/linas/ladon/manager/memory"
-	"gitlab.host1plus.com/linas/ladon/manager/sql"
+	"github.com/hivelocity/ladon"
+	"github.com/hivelocity/ladon/manager/memory"
+	"github.com/hivelocity/ladon/manager/sql"
 )
 
 type managers struct {
